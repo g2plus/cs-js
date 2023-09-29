@@ -1,0 +1,11 @@
+div{
+    text-align:center;
+    font-size:50px;
+}
+.active {
+    background-color: aqua;
+}
+
+.text-danger {
+    color: red;
+}

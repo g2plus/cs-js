@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            debugger
+            var app = new Vue({
+                el: "#app",
+                //datascope
+                data: {
+                    //The toLocaleString() method returns a string with a language sensitive representation of this date
+                    message: "Hello vue!"
+                }
+            })
+            var attr = app.$data.message
+            var selector = "span[title=" + "'" + attr + "'" + "]"
+            //把jq对象转成成了js对象
+            var span = $(selector).get(0)
+            console.log(attr + "----------->");
+            console.log("capatured");
+            console.log(span);
+            var text = span.innerText;
+            text = text.replace(/\r|\n/ig, "")
+            console.log(text);
+            console.log(text === "Who are you?");
+
+
+        })
+    </script>
+</head>
+
+<body>
+<div id="app">
+    <!--{{}}插值表达式里面的被会被替换-->
+    {{message}}
+    <br>
+    <!--设置span的title属性值为message-->
+    <!--应该去除换行符号在比较-->
+    <span v-bind:title="message">Who are you?</span>
+    <span :title="message">
+            Hello world!
+          </span>
+</div>
+</body>
+
+</html>

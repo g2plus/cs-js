@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #vue {
+            /*开启定位，设置left属性值*/
+            position: relative;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            line-height: 200px;
+            text-align: center;
+            background-color: red;
+            color: white;
+            font-size: 25px;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+
+</head>
+
+<body>
+    <button id="selfdefined">自定义动画</button>
+    <div id="vue">Hello world!</div>
+</body>
+
+
+
+<script>
+    /*嵌套动画*/
+    $(function() {
+        $("#selfdefined").click(function() {
+            $("#vue").animate({
+                left: 800
+            }, 6000, "linear", function () {
+                $("#vue").animate({
+                    left: 0
+                }, 6000, "linear", function () {
+                    $("#vue").animate({
+                        left: 800
+                    }, 6000, "linear", function () {
+                        $("#vue").animate({
+                                left: 0
+                            }, 6000, "linear", function () {
+                                console.log("done");
+                            }
+                        )
+                    });
+                });
+            });
+        });
+    });
+</script>
+
+
+
+
+
+</html>

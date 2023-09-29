@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+<!-- vue 实例要控制的 DOM 区域 -->
+<div id="app">
+    <h3>count 的值为：{{count}}</h3>
+    <!--传递事件参数的固定写法$event-->
+    <button @click="addCount($event)">+1</button>
+</div>
+
+<!-- 导入 vue 脚本文件 -->
+<script src="./lib/vue-2.6.12.js"></script>
+<script>
+    var cnt = 0;
+    // 创建 VM 实例对象
+    const vm = new Vue({
+        // 指定当前 VM 要控制的区域
+        el: '#app',
+        // 数据源
+        data: {
+            // 计数器的值
+            count: cnt,
+        },
+        methods: {
+            // 点击按钮，让 count 自增 +1
+            addCount(e) {
+                // console.log(e)
+                // const nowBgColor = e.target.style.backgroundColor
+                // e.target.style.backgroundColor = nowBgColor === 'red' ? '' : 'red'
+                this.count += 1
+                cnt = this.count;
+                window.postMessage({
+                    count: cnt
+                },)
+            },
+        },
+    })
+    window.addEventListener("message", function (event) {
+        try{
+            let cnt = event.data.count;
+            if (cnt % 2) {
+                document.body.style.backgroundColor = "blue";
+            } else {
+                document.body.style.backgroundColor = "transparent";
+            }
+        }catch (e){
+        }
+
+    })
+</script>
+</body>
+
+</html>

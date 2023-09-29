@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    //jquery在项目中的一般加载方式；
+    //方式二:$(document).ready(function(){})
+    $(function () {
+        $("div").height(200).text("欢迎来到地府!")
+            .css("margin", "1px 1px 1px 1px")
+            .css("background-color", "black")
+            .css("line-height","200px")
+            .css("text-align","center")
+            .css("font-size","50px")
+            .css("color","white")
+
+    });
+</script>
+
+</html>

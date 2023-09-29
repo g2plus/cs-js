@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .span {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div><img alt="" id='img' src="image/1.jpg" width='100%'></div>
+<div class="span">
+    <span>https://blog.csdn.net/xiaoxijinger/article/details/115392916</span>
+</div>
+</body>
+
+<script>
+    window.onload = function () {
+        let img = document.getElementById('img');
+        let number = 1;
+
+        function fun() {
+            if (number > 2) {
+                number = 1;
+            }
+            img.src = 'image/' + (number++) + '.jpg';
+        }
+
+        //永久定时器需要清除后才能失效clearInterval
+        setInterval(fun, 2000);
+    }
+</script>
+
+</html>

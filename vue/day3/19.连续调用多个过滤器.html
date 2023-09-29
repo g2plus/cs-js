@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+    <p :title="info|capitalize">{{message|capitalize|maxLength}}</p>
+</div>
+
+<script src="./lib/vue-2.6.12.js"></script>
+<script>
+    //全局过滤器
+    //首字母转大写的过滤器
+    Vue.filter('capitalize', (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1)
+    })
+
+    //微信的show more
+    //定义控制文本长度的过滤器
+    Vue.filter('maxLength', (str) => {
+        if (str.length <= 100) return str
+        return str.slice(0, 100) + '...'
+    })
+</script>
+
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            message: '学国文的人出洋“深造”听来有些滑稽。事实上，惟有学中国文学的人非到外国留学不可。' +
+                '因为一切其他科目像数学、物理、哲学。心理。经济，法律等等都是从外国港灌输进来的，早已洋气扑鼻；只有国文是国货土产，还需要处国招牌，方可维持地位，' +
+                '正好像中国官吏，商人在本国剥削来的钱要换外汇，才能保持国币的原来价值。\n',
+            info: 'test',
+        },
+    })
+</script>
+</body>
+
+</html>
