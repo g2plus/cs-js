@@ -18,19 +18,20 @@
             $.ajax({
                 type: 'POST',
                 url: 'http://localhost:8080/api/addbook',
+                //转换成json格式给到后台
                 data: JSON.stringify({
                     bookname: '史记',
                     author: '司马迁',
                     publisher: '上海图书出版社'
                 }),
-                //参数发送到后台的方式( contentType:"application/x-www-form-urlencoded")
+                //参数发送到后台的方式(contentType:"application/x-www-form-urlencoded")
                 contentType: "application/json",
-                //设置请求头
+                //jq设置请求头
                 headers: { // 请求头参数
                     'Content-Type': 'application/json', // 告诉服务器你正在发送JSON格式的数据
                     'Authorization': 'Bearer your_token' // 设置其他请求头，例如认证令牌
                 },
-                //后台响应格式
+                //要求后台响应格式为application/json
                 dataType: "application/json",
                 success: function (res) {
                     console.log(res)
@@ -38,6 +39,9 @@
                 error: function (res, status, error) {
                     // 请求失败时的回调函数
                     console.log(status, error);
+                },
+                complete: function (res, status, error) {
+                    console.log("done")
                 }
 
             })

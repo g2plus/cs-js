@@ -16,7 +16,7 @@
     $(function () {
         //参数拼接在url路径上
         $('#btnGETINFO').on('click', function () {
-            $.get('http://localhost:8080/api/getbooks', {
+            $.get('http://localhost:8081/api/getbooks', {
                 id: 1
             }, function (res) {
                 console.log(res)

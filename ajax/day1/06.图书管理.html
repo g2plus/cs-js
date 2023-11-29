@@ -50,6 +50,7 @@
                 <th>操作</th>
             </tr>
         </thead>
+        <!--数据渲染区域-->
         <tbody id="tb"></tbody>
     </table>
 
@@ -57,13 +58,21 @@
         $(function() {
             // 获取图书列表数据
             function getBookList() {
-                $.get('http://localhost:8080/api/getbooks', function(res) {
-                    if (res.code !== 0) return alert('获取数据失败！')
-
+                $.get('http://localhost:8081/api/getbooks', function(res) {
+                    //后台响应编码code
+                    if (res.code !== 0) return console.log('获取数据失败!')
+                    //创建数据存放数组
                     var rows = []
+                    //foreach 循环处理
                     $.each(res.data, function(i, item) {
+                        //添加数据到row
                         rows.push('<tr><td>' + item.bookId + '</td><td>' + item.bookName + '</td><td>' + item.bookAuthorName + '</td><td>' + item.publisher + '</td><td><a href="javascript:;" class="del" data-id="' + item.bookId + '">删除</a></td></tr>')
                     })
+                    //清空原有数据，然后
+                    /**
+                     * Adds all the elements of an array into a string, separated by the specified separator string.
+                     * @param separator A string used to separate one element of the array from the next in the resulting string. If omitted, the array elements are separated with a comma.
+                     */
                     $('#tb').empty().append(rows.join(''))
                 })
             }
