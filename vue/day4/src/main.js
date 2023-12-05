@@ -5,7 +5,7 @@ import {createApp} from 'vue'
 //import App from './App.vue'
 //import App from './components/03.style/App.vue'
 //测试props
-//import App from './components/04.props/App.vue'
+import App from './components/04.props/App.vue'
 //测试style与class的使用
 //import App from './components/05.class&style/App.vue'
 //测试全局组件

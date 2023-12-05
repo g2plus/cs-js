@@ -1,9 +1,7 @@
 <template>
   <div>
     <my-addition></my-addition>
-
     <p>---------------------------------</p>
-
     <my-subtraction></my-subtraction>
   </div>
 </template>

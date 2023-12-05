@@ -16,7 +16,6 @@
         <input type="text" v-model="name">
         <button @click="addNewUser">添加</button>
     </div>
-
     <!--用户列表区域-->
     <ul>
         <li :key="user.id" v-for="(user, index) in userlist">

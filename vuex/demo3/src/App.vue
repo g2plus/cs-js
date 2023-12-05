@@ -2,7 +2,6 @@
   <div id="app">
     <a-input placeholder="请输入任务" class="my_ipt" :value="inputValue" @change="handleInputChange"/>
     <a-button type="primary" @click="addItemToList">添加事项</a-button>
-
     <a-list bordered :dataSource="infolist" class="dt_list">
       <a-list-item slot="renderItem" slot-scope="item">
         <!-- 复选框 -->
@@ -10,7 +9,6 @@
         <!-- 删除链接 -->
         <a slot="actions" @click="removeItemById(item.id)">删除</a>
       </a-list-item>
-
       <!-- footer区域 -->
       <div slot="footer" class="footer">
         <!-- 未完成的任务个数 -->

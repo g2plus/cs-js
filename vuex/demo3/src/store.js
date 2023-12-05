@@ -9,10 +9,8 @@ export default new Vuex.Store({
     // 所有的任务列表
     list: [], // 文本框的内容
     inputValue: 'I hate you,I love you.', // 下一个Id
-    nextId: 5,
-    viewKey: 'all'
-  },
-  mutations: {
+    nextId: 5, viewKey: 'all'
+  }, mutations: {
 
     initList(state, list) {
       state.list = list
@@ -64,6 +62,7 @@ export default new Vuex.Store({
 
   actions: {
     getList(context) {
+      //模拟数据
       axios.get('/list.json').then(({data}) => {
         // console.log(data)
         context.commit('initList', data)
@@ -72,7 +71,6 @@ export default new Vuex.Store({
   },
 
   getters: {
-
     // 统计未完成的任务的条数
     unDoneLength(state) {
       return state.list.filter(x => x.done === false).length

@@ -19,7 +19,6 @@
     Vue.filter('capitalize', (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1)
     })
-
     //定义控制文本长度的过滤器
     Vue.filter('maxLength', (str, len = 100) => {
         if (str.length <= len) return str

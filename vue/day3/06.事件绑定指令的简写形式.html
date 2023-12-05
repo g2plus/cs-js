@@ -12,6 +12,7 @@
 <div id="app">
     <h3>count 的值为：{{count}}</h3>
     <button @click="count+=1">+1</button>
+    <button @click="minus()">-1</button>
 </div>
 
 <!-- 导入 vue 脚本文件 -->
@@ -31,6 +32,13 @@
             // addCount() {
             //   this.count += 1
             // },
+            minus() {
+                if (this.count <= 0) {
+                    this.count = 0;
+                } else {
+                    this.count -= 1;
+                }
+            }
         },
     })
 </script>
