@@ -14,19 +14,16 @@
 <script>
     console.log(Map.prototype);
     let myMap = new Map([
-        ['age', 24],
-        ['name', 'xixixi']
+        ['age', 23],
+        ['name', '张三']
     ])
-    console.log(myMap) // {"age" => 24, "name" => "xixixi"}
-    console.log(myMap.size) // 2
-    console.log("-------------")
-        //打印values
+    console.log(myMap)
+    console.log(myMap.size)
+
     myMap.forEach(item => console.log(item));
-    var age = myMap.get("age");
-    console.log(age);
-    alert(myMap.has("age"));
-    console.log(myMap.size);
-    // myMap.delete("name");
+
+    console.log(myMap.get("age"));
+    console.log(myMap.has("age"));
     console.log(myMap.has("name"));
 
     //遍历方式iterator遍历使用for of
@@ -34,13 +31,10 @@
         console.log(item);
     }
 
-    console.log("--------------------------");
     //使用for of遍历iterator
     for (let [key, value] of myMap.entries()) {
         console.log(key + "->" + value);
     }
-
-    console.log("--------------------------");
     //js中对象获取key的方式
     var person = {
         fname: "John",
@@ -48,13 +42,14 @@
         age: 25
     };
 
+    console.log(person.age+"-------------->")
+    console.log(person['age']+"-------------->")
+
     //使用for in 遍历对象
     for (var key in person) {
         console.log(key + "->" + person[key]);
     }
 
-    //forEach一般用来遍历数组
-    console.log("--------------------------");
     var arr = [1, 2, 3];
 
     for (var key in arr) {

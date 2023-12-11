@@ -1,4 +1,4 @@
-//备注熟悉es的导包而已，后台请用java写
+//备注熟悉js的导包而已，后台请用java写
 import connection from "../server/config.js"
 
 
