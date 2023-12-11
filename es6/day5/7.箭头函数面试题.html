@@ -7,17 +7,20 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        var age = 100;
-        var obj = {
-            age: 20,
-            say: () => {
-                alert(this.age);
-                alert(obj.age)
-            }
+<script type="text/javascript">
+    var age = 100;
+    var obj = {
+        age: 20,
+        say: () => {
+            //this是window
+            alert(this.age)
+            alert(window.age)
+            alert(age)
+            alert(obj.age)
         }
-        obj.say();
-    </script>
+    }
+    obj.say();
+</script>
 </body>
 
 </html>

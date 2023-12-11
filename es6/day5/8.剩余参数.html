@@ -7,23 +7,14 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        // const sum = (...args) => {
-        // 	let total = 0;
-        // 	args.forEach(item => total += item);
-        // 	return total;
-        // };
-
-        // console.log(sum(10, 20));
-        // console.log(sum(10, 20, 30));
-
-
-        let ary1 = ['张三', '李四', '王五', '老六'];
-        let [s1, s2, ...s3] = ary1;
-        console.log(s1); //张三
-        console.log(s2); //李四
-        console.log(s3); //是一数组名称为s3
-    </script>
+<script type="text/javascript">
+    let ary1 = ['张三', '李四', '王五', '老六'];
+    //...拓展运算符
+    let [s1, s2, ...s3] = ary1;
+    console.log(s1); //张三
+    console.log(s2); //李四
+    console.log(s3); //是一数组名称为['王五', '老六']
+</script>
 </body>
 
 </html>
