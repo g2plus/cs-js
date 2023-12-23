@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp解决跨域</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        // 回掉函数，默认callback=jQuery30004159376653216822_1550582355513
+        function showData(data) {
+            console.info("Get Into showData");
+            // json对象转成字符串
+            var result = JSON.stringify(data);
+            $("#text").val(result);
+        }
+
+        // 调用
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    url: "http://localhost:80/test/load/data",
+                    type: "GET",
+                    dataType: "jsonp", //指定服务器返回的数据类型
+                    jsonpCallback: "showData",  // 指定回调函数名称或直接使用回掉函数success
+                    jsonp: "callback",   // 默认callback
+                    success: function (data) {
+                        console.info("Get Into success");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="跨域请求数据"/>
+<textarea id="text" style="width: 200px; height: 100px;"></textarea>
+</body>
+</html>
