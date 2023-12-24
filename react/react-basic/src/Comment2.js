@@ -81,7 +81,7 @@ const tabs = [
     {type: 'time', text: '最新'},
 ]
 
-const Comment = () => {
+const Comment2 = () => {
 
     const [list, setList] = useState(defaultList);
 
@@ -208,4 +208,4 @@ const Comment = () => {
         </div>
     )
 }
-export default Comment;
+export default Comment2;
