@@ -49,7 +49,21 @@ function Button(){
 function App() {
   const [ count,setCount] = React.useState(0)
   const [ cnt,setCnt ] = React.useState(0)
-  const handleClick=()=>{
+  const [form,setForm] = React.useState({
+    name:"Rocket"
+  })
+  const handleChangeName=()=>{
+    if(cnt%2===0){
+      setForm({
+        ...form,
+        name:"Zhangsan"
+      })
+    }else{
+      setForm({
+        ...form,
+        name:"Lisi"
+      })
+    }
     setCnt(cnt+1)
   }
   return (
@@ -86,7 +100,10 @@ function App() {
       <button onClick={()=>setCount(count+1)}>{ count }</button>
       </div>
       <div>
-      <button onClick={handleClick}>{ cnt }</button>
+      </div>
+      <div>
+      <button>{ cnt }</button>
+      <button onClick={handleChangeName}>{form.name}</button>
       </div>
     </div>
   );
