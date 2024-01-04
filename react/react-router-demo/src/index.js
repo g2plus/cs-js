@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client"
 import App from "./App"
 import MyRouter from "./routes/MyRouter"
 import MyErrorPage from "./views/error-page"
+import Music from "./components/media/Music"
+import Movie from "./components/media/Movie"
 
 import {
     createBrowserRouter,
@@ -18,16 +20,20 @@ const router = createBrowserRouter([
     {
         path:"/bg",
         element:<App/>,
+        errorElement:<MyErrorPage/>,
+        children:[{
+            path: 'movie',
+            element:<Movie/>,
+        },{
+            index:true,
+            element:<Music/>,
+        }]
+    },
+    {
+        path:"*",
+        element:<MyErrorPage/>,
         errorElement:<MyErrorPage/>
     },
-    // {
-    //     path:"/contacts/1",
-    //     errorElement:<MyErrorPage/>
-    // },
-    // {
-    //     path:"/contacts/2",
-    //     errorElement:<MyErrorPage/>
-    // }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
